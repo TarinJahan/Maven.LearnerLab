@@ -3,29 +3,29 @@ package io.zipcoder.interfaces;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Date;
-
 public class TestPerson {
-    final long id = 0;
-    String name = "";
     @Test
     public void personConstructorTest() {
-        // Given (cat data)
-        String givenName = "Rin";
-        long givenId = 123;
-
-        // When (a cat is constructed)
-        Person person = new Person(givenId, givenName);
-
-        // When (we retrieve data from the cat)
-        String retrievedName = person.getName();
-        long retrievedId = person.getId();
-
-        // Then (we expect the given data, to match the retrieved data)
-        Assert.assertEquals(givenName, retrievedName);
-        Assert.assertEquals(givenId, retrievedId);
+        //Given:
+        Person person = new Person("Larry", 233);
+        String expectedName = "Larry";
+        long expectedId = 233;
+        //When:
+        String actualName = person.getName();
+        long actualId = person.getId();
+        //Then:
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedId, actualId);
 
     }
 
+    @Test
+    public void setNameTest(){
+        Person person = new Person("Garry", 677);
+        person.setName("Garry");
+        String actual = person.getName();
+        String expected = "Garry";
+        Assert.assertEquals(expected, actual);
 
+    }
 }
